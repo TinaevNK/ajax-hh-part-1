@@ -1,0 +1,109 @@
+.body {
+    margin: 0;
+    background: rgb(2, 0, 36);
+    background: radial-gradient(
+        circle,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(24, 9, 121, 1) 77%,
+        rgba(0, 212, 255, 1) 100%
+    );
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px auto 0;
+    max-width: 1280px;
+}
+
+.main__title {
+    margin: 30px 0 30px;
+    color: white;
+}
+
+.search {
+    width: 100%;
+    position: relative;
+}
+
+.search__input {
+    padding: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.search__result {
+    background-color: white;
+    border-radius: 15px;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+}
+
+.search__loader {
+    margin: 0;
+    text-align: center;
+    font-size: 15px;
+    display: none;
+    padding: 15px 0;
+}
+
+.search__fail {
+    margin: 0;
+    text-align: center;
+    font-size: 15px;
+    display: none;
+    padding: 15px 0;
+}
+
+.visible {
+    display: block;
+}
+
+.search__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+.search__item {
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.search__item:hover {
+    background: rgb(2, 0, 36);
+    background: radial-gradient(
+        circle,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(24, 9, 121, 0.1825105042016807) 0%,
+        rgba(0, 212, 255, 1) 100%
+    );
+}
+
+.search__history-divider {
+    padding: 2px;
+    margin: 5px 15px;
+    background-color: black;
+}
+
+.search__item_history {
+    display: flex;
+    color: #c58af9;
+    font-weight: bold;
+    justify-content: space-between;
+}
+
+.search__item_history::after {
+    content: "Из истории запросов";
+    font-weight: lighter;
+    color: grey;
+}
