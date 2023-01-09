@@ -18,6 +18,7 @@
     align-items: center;
     margin: 50px auto 0;
     max-width: 1280px;
+    gap: 30px;
 }
 
 .main__title {
@@ -63,7 +64,7 @@
 }
 
 .visible {
-    display: block;
+    display: block !important;
 }
 
 .search__list {
@@ -106,4 +107,51 @@
     content: "Из истории запросов";
     font-weight: lighter;
     color: grey;
+}
+
+.content {
+    color: white;
+    display: none;
+}
+
+.content__poster {
+    float: left;
+    margin: 4px 20px 10px 0;
+    border: 1px solid #ccc;
+    padding: 6px;
+}
+
+.content__title {
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+.content__description {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.history {
+    border-top: 2px solid grey;
+    width: 100%;
+    display: none;
+}
+
+.history__title {
+    color: darkorchid;
+}
+
+.history__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.history__item {
+    color: royalblue;
+    font-style: italic;
+    font-weight: bold;
 }
