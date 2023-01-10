@@ -31,21 +31,32 @@ const getData = async (url) => {
 };
 
 // обращаемся к серверу за нужными аниме, учитывая максимально нужное количество (count)
-const search = async (searchText, count) => {
+const search = async (text, count) => {
     const searchData = await getData(
-        `${API_URL}?limit=${count}&letter=${searchText}`
+        `${API_URL}?limit=${count}&letter=${text}`
     );
     return searchData.data;
 };
 
 // заполняем данными аниме контентную область
 const setResultData = async (id) => {
-    const result = await getData(`${API_URL}/${id}`);
-    content.classList.add("visible");
-    poster.setAttribute("src", result.data.images.jpg.image_url);
-    poster.setAttribute("alt", result.data.title);
-    titleAnime.textContent = result.data.title;
-    description.innerText = result.data.synopsis;
+    let result;
+
+    try {
+        result = await getData(`${API_URL}/${id}`);
+    } catch (err) {
+        console.log(
+            `Разработчику: Произошла ошибка ${err.message} при поиске по ID аниме`
+        );
+    }
+
+    if (result) {
+        content.classList.add("visible");
+        poster.setAttribute("src", result.data.images.jpg.image_url);
+        poster.setAttribute("alt", result.data.title);
+        titleAnime.textContent = result.data.title;
+        description.innerText = result.data.synopsis;
+    }
 };
 
 // добавляем в локалсторадж данные саджеста
@@ -71,10 +82,10 @@ const addToLocalStorage = (title, mal_id) => {
 };
 
 // колбэк для клика по саджесту (добавим в локал сторадж и отобразим данные). Принимает ноду саджеста
-const handleClickSuggest = (node) => {
+const handleClickSuggest = async (node) => {
     resultsList.classList.remove("visible");
     addToLocalStorage(node.textContent, node.dataset.mal_id);
-    setResultData(node.dataset.mal_id);
+    await setResultData(node.dataset.mal_id);
     input.value = node.textContent;
 };
 
@@ -170,9 +181,9 @@ const updateHistory = () => {
                 historyItem.dataset.mal_id = current.mal_id;
                 historyItem.textContent = current.title;
                 historyList.appendChild(historyItem);
-                historyItem.addEventListener("click", (event) => {
-                    setResultData(event.target.dataset.mal_id);
-                    input.value = event.target.innerText;
+                historyItem.addEventListener("click", (e) => {
+                    setResultData(e.target.dataset.mal_id);
+                    input.value = e.target.innerText;
                 });
             } else {
                 break;
@@ -198,7 +209,7 @@ function debounce(callee, timeoutMs) {
     };
 }
 
-// Основной скрипт, который обрабатываем ввод в поле поиска и загружает историю при старте.
+// вешаем слушатель ввода, слушатель изменения стораджа и чекаем историю в сторадже (работает при загрузке сайта)
 (async () => {
     updateHistory();
 
