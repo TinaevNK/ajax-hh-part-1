@@ -47,15 +47,7 @@
     top: 60px;
 }
 
-.search__loader {
-    margin: 0;
-    text-align: center;
-    font-size: 15px;
-    display: none;
-    padding: 15px 0;
-}
-
-.search__fail {
+.search__status {
     margin: 0;
     text-align: center;
     font-size: 15px;
@@ -92,7 +84,6 @@
 
 .search__history-divider {
     padding: 2px;
-    margin: 5px 15px;
     background-color: black;
 }
 
@@ -119,6 +110,7 @@
     margin: 4px 20px 10px 0;
     border: 1px solid #ccc;
     padding: 6px;
+    border-radius: 30px;
 }
 
 .content__title {
@@ -154,4 +146,5 @@
     color: royalblue;
     font-style: italic;
     font-weight: bold;
+    cursor: pointer;
 }
