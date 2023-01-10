@@ -1,0 +1,152 @@
+.body {
+    margin: 0;
+    background: rgb(2, 0, 36);
+    background: radial-gradient(
+        circle,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(24, 9, 121, 1) 77%,
+        rgba(0, 212, 255, 1) 100%
+    );
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto 20px;
+    max-width: 1280px;
+    gap: 30px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.main__title {
+    margin: 30px 0 30px;
+    color: white;
+}
+
+.search {
+    width: 100%;
+    position: relative;
+}
+
+.search__input {
+    padding: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.search__result {
+    background-color: white;
+    border-radius: 15px;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+}
+
+.search__status {
+    margin: 0;
+    text-align: center;
+    font-size: 15px;
+    display: none;
+    padding: 15px 0;
+}
+
+.visible {
+    display: block !important;
+}
+
+.search__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+.search__item {
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.search__item:hover {
+    background: rgb(2, 0, 36);
+    background: radial-gradient(
+        circle,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(24, 9, 121, 0.1825105042016807) 0%,
+        rgba(0, 212, 255, 1) 100%
+    );
+}
+
+.search__history-divider {
+    padding: 2px;
+    background-color: black;
+}
+
+.search__item_history {
+    display: flex;
+    color: #c58af9;
+    font-weight: bold;
+    justify-content: space-between;
+}
+
+.search__item_history::after {
+    content: "Из истории запросов";
+    font-weight: lighter;
+    color: grey;
+}
+
+.content {
+    color: white;
+    display: none;
+}
+
+.content__poster {
+    float: left;
+    margin: 4px 20px 10px 0;
+    border: 1px solid #ccc;
+    padding: 6px;
+    border-radius: 30px;
+}
+
+.content__title {
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+.content__description {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.history {
+    border-top: 2px solid grey;
+    width: 100%;
+    display: none;
+}
+
+.history__title {
+    color: darkorchid;
+}
+
+.history__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.history__item {
+    color: royalblue;
+    font-style: italic;
+    font-weight: bold;
+    cursor: pointer;
+}
