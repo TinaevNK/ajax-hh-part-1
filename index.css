@@ -16,9 +16,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px auto 0;
+    margin: 20px auto 20px;
     max-width: 1280px;
     gap: 30px;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .main__title {
